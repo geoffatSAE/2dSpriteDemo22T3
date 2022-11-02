@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     float speed = 5;
     public Animator myAnimator;
     public GameObject mySprite;
+    public GameObject bulletGO;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,10 @@ public class PlayerController : MonoBehaviour
             myAnimator.SetBool("Walking", false);
         }
 
-
+        if (Input.GetButtonDown("Jump"))
+        {
+            Instantiate(bulletGO, new Vector3(transform.position.x + 2, transform.position.y, transform.position.z), Quaternion.identity);
+        }
 
     }
 }
